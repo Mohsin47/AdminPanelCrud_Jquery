@@ -1,0 +1,95 @@
+﻿@model AdminPanelAgain.Models.ViewModel.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<hr />
+<h1>Create Employee Data</h1>
+<hr />
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <form id="form1" asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" id="Id"asp-for="UserDbs.Id" />
+
+            <div class="form-group">
+    
+                <input type="text" id="username" placeholder="Username" class="form-control">
+               
+            </div>
+            <div class="form-group">
+               
+                <input type="text" id="fullname" placeholder="Full Name" class="form-control">
+                
+            </div>
+            <div class="form-group">
+               
+                <input type="text" id="LastName" placeholder="Last Name" class="form-control">
+                
+            </div>
+            <div class="form-group">
+               
+                <input type="password" id="Password" placeholder="Password" class="form-control">
+               
+            </div>
+            <div class="form-group">
+               
+                <input type="password" id="ConfirmPassword" placeholder="ConfirmPassword" class="form-control">
+               
+            </div>
+            <div class="form-group">
+               
+                <input type="text" id="Address" placeholder="Address" class="form-control">
+            </div>
+            <div class="form-group">
+
+                @Html.DropDownList("Country", ViewBag.Country as SelectList, new { @id = "Dropdown", @class = "form-control" })
+
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" id="checkbox" name="checkbox" class="form-check-input" asp-for="UserDbs.IsCsharp" /> @Html.DisplayNameFor(model => model.UserDbs.IsCsharp)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" id="checkboxe" name="checkboxe" class="form-check-input" asp-for="UserDbs.IsPython" /> @Html.DisplayNameFor(model => model.UserDbs.IsPython)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" id="checkboxes" name="checkboxes" class="form-check-input" asp-for="UserDbs.IsJava" /> @Html.DisplayNameFor(model => model.UserDbs.IsJava)
+                </label>
+            </div>
+
+
+            <div class="form-group row">
+
+                <div class="col-5">
+                    <input type="file" name="file" id="file" />
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <input type="button" id="myBtn" value="Create" class="btn btn-primary " onclick="AddNewClient()" />
+                <input type="button" id="btnClear" value="Clear" class="btn btn-danger" onclick="ClearAll()" />
+
+            </div>
+
+        </form>
+    </div>
+
+
+    <div class="col-md-5">
+        <img src="~/Images/app_development_PNG.png" class="img-fluid"/>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-warning"><i class="fas fa-arrow-left"></i> Back</a>
+</div>
